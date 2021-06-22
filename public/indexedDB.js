@@ -22,13 +22,13 @@ request.onerror = function (event) {
 };
 
 function saveRecord(record) {
-  const transaction = db.transaction(["budgetStore", "readwrite"]);
+  const transaction = db.transaction(["budgetStore"], "readwrite");
   const save = transaction.objectStore("budgetStore");
   save.add(record);
 }
 
 function checkDatabase() {
-  const transaction = db.transaction(["budgetStore", "readwrite"]);
+  const transaction = db.transaction(["budgetStore"], "readwrite");
   const save = transaction.objectStore("budgetStore");
   const getAll = save.getAll();
 
